@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-OrderManagementSystem.Worker-49c728eb-3bb5-41e6-91e6-90100e236b97</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+    <DockerComposeProjectPath>..\..\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Hangfire" Version="1.8.17" />
+    <PackageReference Include="Hangfire.MemoryStorage" Version="1.8.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OrderManagementSystem.Domain\OrderManagementSystem.Domain.csproj" />
+    <ProjectReference Include="..\OrderManagementSystem.Infrastructure\OrderManagementSystem.Infrastructure.csproj" />
+  </ItemGroup>
+</Project>

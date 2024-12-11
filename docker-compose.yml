@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    image: rabbitmq:4.0.4-management
+    container_name: RabbitMQ
+    hostname: rabbitmq-queue
+    volumes:
+        - ./.containers/queue/data/:/var/lib/rabbitmq
+        - ./.containers/queue/log/:/var/log/rabbitmq
+    ports:
+        - "5672:5672"
+        - "15672:15672"
+    environment:
+        RABBITMQ_DEFAULT_USER: guest
+        RABBITMQ_DEFAULT_PASS: guest
+        
+  api:
+    build:
+      context: .
+      dockerfile: src/OrderManagementSystem.API/Dockerfile
+    container_name: API
+    volumes:
+      - shared-data:/app/shared
+    ports:
+      - "5000:5000"
+    environment:
+      - DOTNET_RUNNING_IN_CONTAINER=true
+      - ASPNETCORE_URLS=http://+:5000
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - rabbitmq  
+  
+  worker:
+    build:
+      context: .
+      dockerfile: src/OrderManagementSystem.Worker/Dockerfile
+    container_name: Worker
+    volumes:
+      - shared-data:/app/shared
+    ports:
+      - "5005:5005"
+    environment:
+      - DOTNET_RUNNING_IN_CONTAINER=true
+      - ASPNETCORE_URLS=http://+:5005
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - rabbitmq
+      - api
+
+volumes:
+  shared-data:

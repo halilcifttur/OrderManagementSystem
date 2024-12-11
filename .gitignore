@@ -1,0 +1,68 @@
+# .NET
+bin/
+obj/
+.containers/
+containers/weather-db/
+logs/
+**/logs/
+**/*.log
+wwwroot/
+redis.conf
+**/*.user
+**/*.rsuser
+**/*.suo
+**/*.userosscache
+**/*.sln.docstates
+
+# Visual Studio
+.vscode/
+.vscode-test/
+.vs/
+.vscode-server/
+
+# Rider
+.idea/
+.idea_modules/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.log
+*.old
+
+# Ignore compiled DLLs and EXEs
+*.dll
+*.exe
+*.pdb
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Redis
+redis.conf
+.dump.rdb
+*.log
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Web Assembly (Blazor ve WebAssembly projelerinde)
+wwwroot/css/app.css
+wwwroot/css/app.css.map
+wwwroot/js/app.js
+wwwroot/js/app.js.map
+
+# User secrets
+**/Microsoft/UserSecrets/
