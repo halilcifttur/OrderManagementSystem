@@ -47,8 +47,8 @@ This system is built using .NET 8, Entity Framework Core, RabbitMQ, and SQLite.
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-repo/order-management-system.git
-cd order-management-system
+git clone https://github.com/halilcifttur/OrderManagementSystem.git
+cd OrderManagementSystem
 ```
 
 ### 2. Build and Run with Docker Compose
